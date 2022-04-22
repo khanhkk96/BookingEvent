@@ -12,6 +12,18 @@ const app = new express();
 app.use(morgan('combined'));
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+
+    next();
+});
+
 app.use(isAuth);
 
 app.use(
@@ -31,7 +43,7 @@ app.use(
 mongoose
     .connect('mongodb://localhost:27017/event-booking?retryWrites=true')
     .then(() => {
-        app.listen('3000');
+        app.listen('8000');
     })
     .catch((err) => {
         console.log(err);
