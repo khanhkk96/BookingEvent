@@ -4,3 +4,35 @@ body {
   font-family: sans-serif;
 }
 
+.form-control label,
+.form-control input,
+.form-control textarea
+{
+    width: 100%;
+    display: block;
+}
+
+.form-control label{
+    margin-bottom: 0.5rem;
+}
+
+.form-control{
+    margin-bottom: 1rem;
+}
+
+.form-actions button, .btn{
+    background: rgb(94, 184, 240);
+    font: inherit;
+    border: 1px solid rgb(94, 184, 240);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.form-actions button:hover, .form-actions button:active, .btn:hover, .btn:active{
+    background: rgb(24, 161, 247);
+    border: 1px solid rgb(27, 166, 253);
+    box-shadow: 1px 1px 5px rgb(53, 53, 53);
+}

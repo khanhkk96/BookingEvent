@@ -21,11 +21,11 @@ module.exports = {
                 description: args.eventInput.description,
                 price: +args.eventInput.price,
                 date: dateToString(args.eventInput.date),
-                creator: '62610195c2112c206b56aae8',
+                creator: req.userId,
             });
             const rs = await event.save();
 
-            const userInfo = await User.findById('62610195c2112c206b56aae8');
+            const userInfo = await User.findById(req.userId);
             if (userInfo) {
                 userInfo.createdEvents.push(event);
                 await userInfo.save();
